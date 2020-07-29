@@ -1,0 +1,308 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/*
+    Created on : 28 Jul 2020, 11:30:27 AM
+    Author     : Shammah
+*/
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html{
+    font-family: Arial, Helvetica, sans-serif;
+    background: linear-gradient(to right,#57c1eb 0%, #246fa8 100%);
+    font-size: 10px;
+}
+body{
+    display: grid;
+    place-items: center;
+    padding-top: 25px;
+}
+/*respective sizes and location areas given to grids*/
+#chat-container {
+  display: grid;
+  box-shadow: 0px 5px 10px 5px rgba(0,0,0,0.75);
+  grid-template-columns: 0.2fr 0.8fr 2.1fr 0.9fr;
+  grid-template-rows: 0.3fr 2.4fr 0.3fr;
+  gap: 0px;
+  grid-template-areas: "nav-section search-container chat-title chat-title"
+                       "nav-section conversation-list chat-message-list chat-message-list"
+                       "nav-section conversation-list chat-form chat-form";
+  min-width: 800px;
+  max-width: 1200px;
+  min-height: 800px;
+  width: 100%;
+  height: 95vh;
+  background: #6d4fbf;
+  border-radius: 20px;
+}
+
+.nav-section { grid-area: nav-section; }
+
+.search-container { grid-area: search-container; }
+
+.conversation-list { grid-area: conversation-list; }
+
+.chat-title { grid-area: chat-title; }
+
+.chat-message-list { grid-area: chat-message-list; }
+
+.chat-form { grid-area: chat-form; }
+
+/*#chat-container{
+    display:grid;
+    grid:
+    'nav-section'1fr
+        'search-container chat-title' 71px
+        'conversation-list chat-message-list'1fr
+        'new-message-container chat-form' 78px
+        /275px 1fr;
+    min-width: 800px;
+    max-width: 1200px;
+    min-height: 800px;
+    width: 100%;
+    height: 95vh;
+    background: #eee;
+    border-radius: 20px;
+}*/
+/*multiple containers selected with same colours*/
+#search-container,
+#conversation-list,
+#new-message-container{
+    background: #FFF;
+}
+/*top left block*/
+#search-container{
+    display: grid;
+    align-items: center;
+    grid-area: search-container;
+    padding: 0 20px;
+    z-index: 1;
+}
+/*search container input box*/
+#search-container input{
+    color: #f7f2ee;
+    outline: none;
+    box-shadow: 0px 1px 5px 1px rgba(0,0,0,0.75);
+    font-weight: bold;
+    border-radius: 2px;
+    height: 30px;
+    border: 0;
+    padding-left: 48px;
+    padding-right: 20px;
+    font-size: 1.4rem;
+    background: url('search-24px.svg') no-repeat rgba(255,255,255, 0.3);
+    background-position:  15px center;
+    background-size: 20px 20px;
+}
+#nav-section{
+  background-color: #6d4fbf;
+  display: grid;
+  border-radius: 10px;
+  place-content: center center;
+}
+.nav-icon{
+  padding-bottom: 40px;
+}
+/*search text*/
+#search-container input::placeholder{
+    color: #ddd;
+    font-weight: bold;
+}
+#conversation-list{
+    grid-area: conversation-list;
+    box-shadow: 5px -5px 5px -5px rgba(0,0,0,0.75);
+    overflow-y: scroll;
+}
+/*contact area customisation message*/
+.conversation{
+  display: grid;
+  grid-template-columns: 40px 1fr max-content;
+  color: #ddd;
+  grid-gap: 10px;
+  font-size: 1.3rem;
+  border-bottom: 1px solid #0002C88;
+  padding: 20px 20px 20px 15px;
+}
+/*active conversation*/
+.conversation.active,
+.conversation:hover{
+  background: #efe5dc;
+}
+/*conversation on hover*/
+.conversation:hover{
+  cursor: pointer;
+}
+/*conversation image styling*/
+.conversation > img{
+  grid-row:span 2;
+  width: 40px;
+  height: 40px;
+  border-radius:100%;
+}
+.title-text{
+  font-weight: bold;
+  color: #000000;
+  padding-left: 5px;
+  white-space: nowrap;
+  overflow-x: hidden;
+  text-overflow: ellipsis;
+}
+.Created-date{
+  color: #999999;
+  font-size: 1rem;
+}
+.conversation-message{
+  grid-column: span 2;
+  padding-left: 5px;
+  color: #999999;
+  white-space: nowrap;
+  overflow-x: hidden;
+  text-overflow: ellipsis;
+}
+.nav-container{
+
+}
+/*bottom left block*/
+#new-message-container{
+    display: grid;
+    background-color: #6d4fbf;
+    grid:40px/40px;
+    align-content: center;
+    padding: 0 15px;
+}
+/*plus button customization*/
+#new-message-container a{
+  display: grid;
+  place-content: center center;
+  background: #4f85bf;
+  border-radius: 100%;
+  color: #FFF;
+  text-decoration: none;
+  font-size: 3.6rem;
+
+}
+/*background color of conversation list area top and bottom*/
+#chat-title{
+    background: #FFF;
+}
+/*top right block*/
+#chat-title{
+  display: grid;
+  grid:36px/1fr 36px;
+  align-content: center;
+  aign-items:20px center;
+  grid-area: chat-title;
+  color: #0048AA;
+  font-weight: bold;
+  font-size: 2.0rem;
+  border-radius: 0 10px 0 0;
+  box-shadow: 0 1px 3px -1px rgba(0,0,0,0.75);
+  padding: 0.20px
+}
+#chat-title > img{
+  cursor: pointer;
+}
+#chat-message-list{
+    grid-area: chat-message-list;
+    display: flex;
+    flex-direction: column-reverse;
+    padding: 0 20px;
+    background-color: #eee;
+    overflow-y: scroll;
+}
+/*row hight, chat bubble width, display type between messages*/
+.message-row{
+  display: grid;
+  grid-template-columns: 65%;
+  margin-bottom: 20px;
+}
+.message-content{
+  display: grid;
+}
+.youe-message .message-content{
+  justify-items: end;
+}
+.you-message{
+  justify-content: end;
+  justify-items: end;
+}
+.other-message{
+  justify-items: start;
+}
+.other-message .message-content{
+  grid-template-columns: 48px 1fr;
+  grid-column-gap: 15px;
+}
+.message-row img{
+  border-radius:100%;
+  width: 30px;
+  height: 30px;
+  grid-row: span 2;
+}
+/*actual message text*/
+.message-text{
+  padding: 14px 14px 14px;
+  font-size: 1.2rem;
+  margin-bottom: 5px;
+}
+/*actual message text*/
+.message-time{
+  font-size: 1.3rem;
+  color: #777;
+}
+.you-message .message-text{
+  background: #0048AA;
+  color: #eee;
+  border-radius: 50px 50px 0 50px;
+}
+.other-message .message-text{
+  background: #FFF;
+  color: #111;
+  border-radius: 50px 50px 50px 0;
+}
+/*bottom right block*/
+#chat-form{
+  display: grid;
+  align-content: center;
+  align-items: center;
+  grid-area: chat-form;
+  border-radius: 0 0 10px 0;
+  padding-left: 42px;
+  padding-right: 22px;
+  background-color: #eee;
+  color:#eee;
+  display: grid;
+  align-items: center;
+}
+#chat-form input{
+  outline: none;
+  padding-right: 20px;
+  font-size: 1.4rem;
+  padding: 15px;
+  color: #000;
+  border-radius: 6px;
+  font-size: 1.4rem;
+  grid: 51px / 32px 2fr;
+
+  box-shadow: 0px 1px 5px 1px rgba(0,0,0,0.75);
+  font-weight: bold;
+  border-radius: 2px;
+  border: 0;
+  padding-left: 100px;
+  padding-right: 20px;
+  font-size: 1.4rem;
+  background: url('tag_faces-24px.svg') no-repeat rgba(255,255,255, 0.3);
+  background-position: 15px center;
+  background-size: 20px 20px;
+
+}
+/*scrollbar function upon overflow of contacts*/
+::-webkit-scrollbar{
+  display: none;
+}

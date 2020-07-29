@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html lang="en" dir="ltr">
+    <head>
+        <title>Chat UI</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="chatDesign.css" rel="stylesheet" type="text/css"/>
+    </head>
+    <script>
+  function whatis(){
+    {
+      chat = [
+        {
+          "user_id": 1,
+          "messages": [
+            {
+              "user_id": 1,
+              "message": "Hi Dan, how are you doing this fine morning?",
+              "timestamp": "2020-07-27T10:30:10+0000"
+            },
+            {
+              "user_id": 6,
+              "message": "I am doing just dandy Evan, how are you?",
+              "timestamp": "2020-07-27T10:31:10+0000"
+            },
+            {
+              "user_id": 1,
+              "message": "Good thanks. Listen can we collaborate on a new project?",
+              "timestamp": "2020-07-27T10:32:10+0000"
+            },
+            {
+              "user_id": 6,
+              "message": "Sure! Tell me more. 🧐",
+              "timestamp": "2020-07-27T10:33:10+0000"
+            },
+            {
+              "user_id": 6,
+              "message": "Really exicted to hear more about the project!",
+              "timestamp": "2020-07-27T10:35:10+0000"
+            }
+          ]
+        },
+        {
+          "user_id": 2,
+          "messages": [
+            {
+              "user_id": 2,
+              "message": "Lorem ipsum dolor sit amet.",
+              "timestamp": "2020-07-27T10:20:10+0000"
+            },
+            {
+              "user_id": 6,
+              "message": "consectetur adipiscing elit",
+              "timestamp": "2020-07-27T10:15:10+0000"
+            },
+            {
+              "user_id": 2,
+              "message": "Proin ut tristique erat.",
+              "timestamp": "2020-07-27T10:10:10+0000"
+            },
+            {
+              "user_id": 6,
+              "message": "Curabitur interdum massa metus.",
+              "timestamp": "2020-07-27T10:05:10+0000"
+            }
+          ]
+        },
+        {
+          "user_id": 3,
+          "messages": [
+            {
+              "user_id": 3,
+              "message": "Integer luctus metus lacinia semper sodales.",
+              "timestamp": "2020-07-27T09:55:10+0000"
+            },
+            {
+              "user_id": 6,
+              "message": "Sed quis mollis massa.",
+              "timestamp": "2020-07-27T09:31:10+0000"
+            },
+            {
+              "user_id": 3,
+              "message": "Nam ac tempor libero.",
+              "timestamp": "2020-07-27T09:20:10+0000"
+            },
+            {
+              "user_id": 3,
+              "message": "Pellentesque non mauris nibh. Integer id tortor gravida.",
+              "timestamp": "2020-07-27T09:15:10+0000"
+            }
+          ]
+        },
+        {
+          "user_id": 4,
+          "messages": [
+            {
+              "user_id": 4,
+              "message": "Mauris elementum id enim sit amet pharetra.",
+              "timestamp": "2020-07-27T09:14:10+0000"
+            },
+            {
+              "user_id": 6,
+              "message": "Nunc tempus efficitur nisi, porta pulvinar mi.",
+              "timestamp": "2020-07-27T09:00:10+0000"
+            },
+            {
+              "user_id": 4,
+              "message": "Fusce pretium tortor eu metus interdum accumsan.",
+              "timestamp": "2020-07-27T08:55:10+0000"
+            },
+            {
+              "user_id": 6,
+              "message": "Donec eget placerat ante.",
+              "timestamp": "2020-07-27T08:54:10+0000"
+            }
+          ]
+        },
+        {
+          "user_id": 5,
+          "messages": [
+            {
+              "user_id": 5,
+              "message": "Maecenas rutrum eget massa maximus cursus.",
+              "timestamp": "2020-07-27T08:50:10+0000"
+            },
+            {
+              "user_id": 6,
+              "message": "Vivamus et ultrices eros.",
+              "timestamp": "2020-07-27T08:45:10+0000"
+            },
+            {
+              "user_id": 5,
+              "message": "Nullam tincidunt lorem mauris, facilisis sagittis nisi facilisis nec.",
+              "timestamp": "2020-07-27T08:44:10+0000"
+            },
+            {
+              "user_id": 6,
+              "message": "Phasellus scelerisque neque eget mauris porta convallis.",
+              "timestamp": "2020-07-27T08:33:10+0000"
+            }
+          ]
+        }
+      ],
+       users = [
+        {
+          "user_id": 1,
+          "username": "Le Chef",
+          "status": "online",
+          "avatar": "https://randomuser.me/api/portraits/lego/8.jpg"
+        },
+        {
+          "user_id": 2,
+          "username": "José",
+          "status": "away",
+          "avatar": "https://randomuser.me/api/portraits/lego/6.jpg"
+        },
+        {
+          "user_id": 3,
+          "username": "Geekster",
+          "status": "online",
+          "avatar": "https://randomuser.me/api/portraits/lego/3.jpg"
+        },
+        {
+          "user_id": 4,
+          "username": "Scully Mike",
+          "status": "offline",
+          "avatar": "https://randomuser.me/api/portraits/lego/4.jpg"
+        },
+        {
+          "user_id": 5,
+          "username": "Joe Brick",
+          "status": "online",
+          "avatar": "https://randomuser.me/api/portraits/lego/5.jpg"
+        },
+        {
+          "user_id": 6,
+          "username": "Magic Marven",
+          "status": "offline",
+          "avatar": "https://randomuser.me/api/portraits/lego/2.jpg"
+        }
+      ]
+    }
+    var obj = JSON.parse(chat)
+    mymessage1 = document.getElementById('message-text').innerHTML = obj.message;
+    reply1 = document.getElementById('message-text');
+    mymessage2  = document.getElementById('message-text');
+    reply3  = document.getElementById('message-text');
+    reply3 = document.getElementById('message-text');
+  }
+  window.onload = function(){
+    whatis();
+  }
+    </script>
+    <body>
+        <div id="chat-container">
+          <div id="nav-section">
+                <img src="menu-24px.svg" alt="inbox"/>
+          </div>
+          <div id="nav-section">
+              <div class="nav-icon">
+                <img src="inbox-24px.svg" alt="inbox"/>
+              </div>
+              <div class="nav-icon">
+                <img src="star-24px.svg" alt="Favourites"/>
+              </div>
+              <div class="nav-icon">
+                <img src="delete-24px.svg" alt="delete"/>
+              </div>
+              <div class="nav-icon">
+                <img src="supervisor_account-24px.svg" alt="Contacts">
+              </div>
+          </div>
+          <div id="nav-section">
+            <div id="new-message-container">
+                <a href="#">+</a>
+            </div>
+          </div>
+            <div id="search-container">
+              <h2>Message Box</h2>
+                <input type="text" placeholder="Search" value="" />
+            </div>
+            <div id="conversation-list">
+              <!--active convo-->
+              <div class="conversation active">
+                <img src="Mescene.JPEG" alt="Shammah_nhlabathi"><!--manipulate non-active sections-->
+                <div class="title-text">
+                  Mollie Austin
+                </div>
+                <div class="Created-date">
+                  Apr 16
+                </div>
+                <div class="conversation-message">
+                  Really? that's great...
+                </div>
+              </div>
+              <!--active convo-->
+              <div class="conversation">
+                <img src="Mescene.JPEG" alt="Shammah_nhlabathi">
+                <div class="title-text">
+                  Charlie Sharp
+                </div>
+                <div class="Created-date">
+                  Apr 17
+                </div>
+                <div class="conversation-message">
+                  Where do you go?**
+                </div>
+              </div>
+              <!--active convo-->
+              <div class="conversation">
+                <img src="Mescene.JPEG" alt="Shammah_nhlabathi">
+                <div class="title-text">
+                  Maude Mckinney
+                </div>
+                <div class="Created-date">
+                  Apr 18
+                </div>
+                <div class="conversation-message">
+                  Amazing job!
+                </div>
+              </div>
+              <!--active convo-->
+              <div class="conversation">
+                <img src="Mescene.JPEG" alt="Shammah_nhlabathi">
+                <div class="title-text">
+                  Samuel Carlson
+                </div>
+                <div class="Created-date">
+                  Apr 18
+                </div>
+                <div class="conversation-message">
+                  Ok!
+                </div>
+              </div>
+              <!--active convo-->
+              <div class="conversation">
+                <img src="Mescene.JPEG" alt="Shammah_nhlabathi">
+                <div class="title-text">
+                Hattie Brewer
+                </div>
+                <div class="Created-date">
+                  Apr 19
+                </div>
+                <div class="conversation-message">
+                  Congratualtions
+                </div>
+              </div>
+              <!--active convo-->
+              <div class="conversation">
+                <img src="Mescene.JPEG" alt="Shammah_nhlabathi">
+                <div class="title-text">
+                  Eunice Diaz
+                </div>
+                <div class="Created-date">
+                  Apr 20
+                </div>
+                <div class="conversation-message">
+                  I'm ok
+                </div>
+              </div>
+              <!--active convo-->
+              <div class="conversation">
+                <img src="Mescene.JPEG" alt="Shammah_nhlabathi">
+                <div class="title-text">
+                  Shammah Nhlabathi adfsdda d a gvadsdfasd asd
+                </div>
+                <div class="Created-date">
+                  Apr 16
+                </div>
+                <div class="conversation-message">
+                  This is a message sfasafdgafgaf df asdf
+                </div>
+              </div>
+              <!--active convo-->
+              <div class="conversation">
+                <img src="Mescene.JPEG" alt="Shammah_nhlabathi">
+                <div class="title-text">
+                  Shammah Nhlabathi adfsdda d a gvadsdfasd asd
+                </div>
+                <div class="Created-date">
+                  Apr 16
+                </div>
+                <div class="conversation-message">
+                  This is a message sfasafdgafgaf df asdf
+                </div>
+              </div>
+              <!--active convo-->
+              <div class="conversation">
+                <img src="Mescene.JPEG" alt="Shammah_nhlabathi">
+                <div class="title-text">
+                  Shammah Nhlabathi adfsdda d a gvadsdfasd asd
+                </div>
+                <div class="Created-date">
+                  Apr 16
+                </div>
+                <div class="conversation-message">
+                  This is a message sfasafdgafgaf df asdf
+                </div>
+              </div>
+              <!--active convo-->
+              <div class="conversation">
+                <img src="Mescene.JPEG" alt="Shammah_nhlabathi">
+                <div class="title-text">
+                  Shammah Nhlabathi adfsdda d a gvadsdfasd asd
+                </div>
+                <div class="Created-date">
+                  Apr 16
+                </div>
+                <div class="conversation-message">
+                  This is a message sfasafdgafgaf df asdf
+                </div>
+              </div>
+              <!--active convo-->
+              <div class="conversation">
+                <img src="Mescene.JPEG" alt="Shammah_nhlabathi">
+                <div class="title-text">
+                  Shammah Nhlabathi adfsdda d a gvadsdfasd asd
+                </div>
+                <div class="Created-date">
+                  Apr 16
+                </div>
+                <div class="conversation-message">
+                  This is a message sfasafdgafgaf df asdf
+                </div>
+              </div>
+            </div>
+            <div id="chat-title">
+              <span>Mollie Austin</span><!--manipulate auto title-->
+              <img src="delete-24px.svg" alt="Delete Conversation" />
+            </div>
+            <div id="chat-form">
+              <input STYLE="background-color: #FFF;" type="text" placeholder="type a message" />
+            </div>
+            <div id="chat-message-list">
+              <div class="message-row you-message"><!--manipulate conversation-->
+                <div class="">
+                  <div class="message-text" id=6>Ok then</div>
+                  <div class="message-time">Apr 16</div>
+                </div>
+              </div>
+              <div class="message-row other-message"><!--manipulate conversation-->
+                <div class="messade-content">
+                <img src="Mescene.JPEG" alt="Mollie Austin"/ />
+                  <div class="message-text"id="message-text">yes i think its best we do that. otherwise things
+                    won't work well at all. I'm adding more text here to test the
+                    sizing of the speech bubble and the wrapping of it too.
+                  </div>
+                </div>
+                <div class="message-time">Apr 16</div>
+              </div>
+            </div>
+
+        </div>
+    </body>
+</html>
